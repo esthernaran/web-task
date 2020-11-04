@@ -23,7 +23,12 @@
         >
         <h2>{{ t.title }}</h2>
         <p>{{ t.desc }}</p>
+<<<<<<< HEAD
         <p><a class="btn btn-secondary" href="{% url 'detail_task' t.pk %}" role="button">Ver detalles &raquo;</a></p>
+=======
+
+        <p><a href="{% url 'detail_task' t.pk %}">Ver detalles &raquo;</a></p>
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
     </div><!-- /.col-sm-4 -->
 {% endfor %}
 

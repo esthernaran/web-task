@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 Django settings for TaskMaster project.
 
@@ -9,6 +10,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+=======
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
 import os
 from pathlib import Path
 
@@ -25,7 +28,11 @@ SECRET_KEY = '=x6$*s3ka6)hu$p=g5^a4xjrmscdpywbsd78ov0@d6h&)_m+7b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'euribatestaskmaster.herokuapp.com',
+    ]
 
 
 # Application definition
@@ -37,10 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
+    'whitenoise',
     'todo',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +59,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+INTERNAL_IPS = [
+    'localhost', '127.0.0.1',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -118,8 +133,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 
 MEDIA = os.path.join(BASE_DIR, 'media')
 MEDIA_URL ='/media/'
+=======
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media settings
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+import dj_database_url
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87

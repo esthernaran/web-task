@@ -1,23 +1,13 @@
-"""hola URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 import datetime
 import os
 
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, re_path
+from django.views.static import serve
+from django.urls import include
+
+import debug_toolbar
 
 import todo.views
 
@@ -25,13 +15,35 @@ urlpatterns = [
     path('', todo.views.homepage, name="homepage"),
     path('tareas/', todo.views.tareas),
     path(
+<<<<<<< HEAD
         'tareas/<int:id_tarea>', 
         todo.views.detalle_tarea,
         name='detail_task',
     ),
+=======
+        'tareas/<int:id_tarea>',
+        todo.views.detalle_tarea,
+        name="detail_task",
+        ),
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
     path('proyectos/', todo.views.proyectos),
     path('hola/', todo.views.hola),
     path('files/', todo.views.files),
     path('hola/<int:num>', todo.views.numero),
     path('admin/', admin.site.urls),
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns.append(
+        re_path(
+            r'^media/(?P<path>.*)$', serve, {
+                'document_root': settings.MEDIA_ROOT,
+            }),
+        )
+    urlpatterns.append(
+        re_path(
+            r'^static/(?P<path>.*)$', serve, {
+                'document_root': settings.STATIC_ROOT,
+            }),
+        )

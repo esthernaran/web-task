@@ -1,11 +1,11 @@
 [
 {
     "model": "todo.project",
-    "pk": "",
+    "pk": "ADD",
     "fields": {
         "name": "Analisis de datos",
         "about": "",
-        "started": "2020-10-30"
+        "started": "2019-01-01"
     }
 },
 {
@@ -32,7 +32,7 @@
     "fields": {
         "name": "Añadir Servidor REDIS",
         "about": "",
-        "started": "2020-10-29"
+        "started": "2019-03-05"
     }
 },
 {
@@ -130,6 +130,20 @@
         "high_priority": true,
         "created": "2020-10-30T16:17:55.889Z",
         "updated": "2020-10-30T16:22:38.103Z",
+        "closed": null
+    }
+},
+{
+    "model": "todo.task",
+    "pk": 11,
+    "fields": {
+        "project": "ADD",
+        "title": "Analizar la base de datos",
+        "desc": "Verificar la integridad relacional cuando se borra un proyecto",
+        "size": 3,
+        "high_priority": false,
+        "created": "2020-11-04T10:20:20Z",
+        "updated": "2020-11-04T10:20:20Z",
         "closed": null
     }
 }

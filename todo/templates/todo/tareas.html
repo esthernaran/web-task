@@ -1,5 +1,9 @@
 {% extends "todo/base.html" %}
+<<<<<<< HEAD
 {% load size %}
+=======
+{% load todotags %}
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
 {% block title %}Tareas activas{% endblock %}
 
 {% block content %}
@@ -25,9 +29,13 @@
             
             </td>
             <td>
+<<<<<<< HEAD
             
                 {{ t.size|as_task_size:"short" }}
                 
+=======
+                {{ t.size|as_task_size:"short" }}
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
             </td>
             <td class="priority">
                 {% if t.high_priority %}
@@ -36,7 +44,9 @@
                     <strong class="normal-priority">No</strong>
                 {% endif %}
             </td>
-            <td>{{ t.project_id }}</td>
+            <td>{{ t.project_id }}
+            <br>{{ t.project.name }}
+            </td>
         </tr>
         {% endfor %}
     </tbody>

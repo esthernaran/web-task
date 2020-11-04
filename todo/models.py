@@ -66,6 +66,10 @@ class Task(models.Model):
         else:
             return False
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
 class Document(models.Model):
     id_document = models.AutoField(primary_key=True)
     task = models.ForeignKey(Task, on_delete=models.PROTECT)
@@ -73,4 +77,22 @@ class Document(models.Model):
     archive = models.FileField(upload_to='task/docs')
 
     def __str__(self):
+<<<<<<< HEAD
         self.document_name
+=======
+        return self.document_name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87

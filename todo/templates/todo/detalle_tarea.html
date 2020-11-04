@@ -1,5 +1,10 @@
 {% extends 'todo/base.html' %}
+<<<<<<< HEAD
 {% load size %}
+=======
+{% load todotags %}
+
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
 {% block title %} Tarea {{ t }} {% endblock %}
 
 {% block content %}
@@ -22,9 +27,19 @@
  <tbody>
   <tr>
     <td>{{ task.project_id }}</td>
+<<<<<<< HEAD
     <td>{{ task.created|date:"d/M"}}<br>{{ task.created|date:"Y"}}</td>
     <td>{{ task.high_priority|yesno:"Alta,baja" }}</td>
     <td>{{ task.size|as_task_size|lower }}</td>
+=======
+    <td>
+      {{ task.created|date:"d/M"}}<br>{{ task.created|date:"Y"}}
+
+
+    </td>
+    <td>{{ task.high_priority|yesno:"Alta,baja" }}</td>
+    <td>{{ task.size|as_task_size }}</td>
+>>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
     <td>
       {{ task.is_due|yesno:"Fuera de plazo,No está fuera de plazo" }}
       {{ task.closed|default:"Tarea Abierta" }}
@@ -32,6 +47,21 @@
   </tr>
  </tbody> 
 </table>
+
+{% if task.document_set.count %}
+<ul>
+  {% for d in task.document_set.all %}
+    <li>{{ d }}
+      {{ d.archive }}
+      {{ d.archive.size }}
+      {{ d.archive.url }} 
+      <a href="{{ d.archive.url }}">Descargar</a>
+
+    </li>
+  {% endfor %}
+
+</ul>
+{% endif %}
 
 
 {% endblock content %}

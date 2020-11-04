@@ -1,2 +1,6 @@
-django
 arrow
+django
+gunicorn
+whitenoise
+dj-database-url
+psycopg2
