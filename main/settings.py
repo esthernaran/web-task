@@ -18,6 +18,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'euribatestaskmaster.herokuapp.com',
+    'pruebaester.herokuapp.com/',
     ]
 
 
@@ -128,6 +129,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
 
 import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
