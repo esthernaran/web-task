@@ -27,9 +27,11 @@ urlpatterns = [
         ),
 >>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
     path('proyectos/', todo.views.proyectos),
+    path('proyectos/nuevo/', todo.views.crear_proyecto),
     path('hola/', todo.views.hola),
     path('files/', todo.views.files),
     path('hola/<int:num>', todo.views.numero),
+    path('buscar', todo.views.buscar),
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
