@@ -54,7 +54,7 @@ class Task(models.Model):
     )
 
     def __str__(self):
-        return f"{self.project_id}-{self.id_task}: {self.title}"
+        return f"{Project.id_project}-{self.id_task}: {self.title}"
 
     def is_due(self):
         if self.closed:
@@ -69,10 +69,6 @@ class Task(models.Model):
     def is_closed(self):
         self.closed != None
     
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
 class Document(models.Model):
     id_document = models.AutoField(primary_key=True)
     task = models.ForeignKey(Task, on_delete=models.PROTECT)
@@ -80,22 +76,4 @@ class Document(models.Model):
     archive = models.FileField(upload_to='task/docs')
 
     def __str__(self):
-<<<<<<< HEAD
         self.document_name
-=======
-        return self.document_name
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87

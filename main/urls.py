@@ -15,17 +15,10 @@ urlpatterns = [
     path('', todo.views.homepage, name="homepage"),
     path('tareas/', todo.views.tareas),
     path(
-<<<<<<< HEAD
         'tareas/<int:id_tarea>', 
         todo.views.detalle_tarea,
         name='detail_task',
     ),
-=======
-        'tareas/<int:id_tarea>',
-        todo.views.detalle_tarea,
-        name="detail_task",
-        ),
->>>>>>> 7ab73a46d0d831151dd543f7e678e405a017ee87
     path('proyectos/', todo.views.proyectos),
     path('proyectos/nuevo/', todo.views.crear_proyecto),
     path('hola/', todo.views.hola),
